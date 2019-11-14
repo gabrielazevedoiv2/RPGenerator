@@ -5,7 +5,14 @@ import JWTManager from "../jwt";
 
 const router = express.Router();
 
-router.post("/validate", function(req, res, next) {
+router.get("/users", function(req, res, next) {
+    Users.find(function(err, users) {        
+        if (err) return console.error(err);
+        res.send(users);
+    })
+});
+
+router.post("/authenticate", function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
     Users.findOne({"username": username}, function(err, user) {        
@@ -13,7 +20,7 @@ router.post("/validate", function(req, res, next) {
             res.send(err);
             return console.error(err);
         } else if (Lock.Hash(password) == user.password) {
-            res.send(JWTManager.SignIn({...username, password}));
+            res.send(JWTManager.SignIn({username, password}));
         }
     });
 });

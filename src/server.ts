@@ -1,5 +1,6 @@
 import * as express from "express";
 import skillrouter from "./routes/skillroute";
+import userrouter from "./routes/user";
 import mongoStart from "./mongoose";
 
 mongoStart();
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/skills", skillrouter);
+app.use("/users", userrouter);
 
 const PORT = process.env.PORT || 3060;
 
