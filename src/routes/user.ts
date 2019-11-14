@@ -1,38 +1,25 @@
 import * as express from "express";
 import Users from "../schemas/userdb";
-import Lock from "../helpers/lock";
 import JWTManager from "../jwt";
 
 const router = express.Router();
 
+router.use(JWTManager.Verify);
+
 router.get("/users", function(req, res, next) {
-    Users.find(function(err, users) {        
-        if (err) return console.error(err);
-        res.send(users);
-    })
-});
+    res.status(200).send("OK")
+})
 
-router.post("/authenticate", function(req, res, next) {
-    var username = req.body.username;
-    var password = req.body.password;
-    Users.findOne({"username": username}, function(err, user) {        
-        if (err) {
-            res.send(err);
-            return console.error(err);
-        } else if (Lock.Hash(password) == user.password) {
-            res.send(JWTManager.SignIn({username, password}));
+router.get("/:username", function(req, res, next) {
+    Users.findOne({"username": req.params.username}, function(err, user) {
+        if (err) return console.log(err);
+        var userData = {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            additionalProperties: user.additionalProperties
         }
+        res.send(userData);
     });
-});
-
-router.post("/save", function(req, res, next) {
-    var user = {
-        username: req.body.username,
-        password: Lock.Hash(req.body.password),
-        email: req.body.email
-    }
-    var newUser = Users.create(user);
-    res.send(newUser);
 });
 
 router.post("/delete", function(req, res, next) {
