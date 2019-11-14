@@ -2,7 +2,8 @@ import * as mongoose from "mongoose";
 
 export default function start() {
     mongoose.set('useFindAndModify', false);
-    mongoose.connect("mongodb://155.138.242.116:27017/skills_db", { auth:{
+    mongoose.set('useCreateIndex', true);
+    mongoose.connect("mongodb://155.138.242.116:27017/rpggenerator", { auth:{
         authdb: "admin",
         user: "admin",
         password: "password"

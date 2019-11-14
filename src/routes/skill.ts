@@ -1,7 +1,10 @@
 import * as express from "express";
 import Skills from "../schemas/skillsdb";
+import JWTManager from "../jwt";
 
 const router = express.Router();
+
+router.use(JWTManager.Verify)
 
 router.get("/", function(req, res, next) {
     res.send("skills works")
