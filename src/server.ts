@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 
 app.use("/skills", skillrouter);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3060;
 
 app.listen(PORT, () => {
      console.log(`Server is running in http://localhost:${PORT}`)
