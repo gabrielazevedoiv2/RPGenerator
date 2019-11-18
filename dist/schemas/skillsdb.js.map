@@ -1,0 +1,1 @@
+{"version":3,"file":"skillsdb.js","sourceRoot":"","sources":["../../src/schemas/skillsdb.ts"],"names":[],"mappings":";;AAAA,qCAAqC;AAErC,IAAI,WAAW,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IAClC,IAAI,EAAE,MAAM;IACZ,OAAO,EAAE,MAAM;IACf,IAAI,EAAE,MAAM;CACf,CAAC,CAAC;AAEH,MAAM,MAAM,GAAG,QAAQ,CAAC,KAAK,CAAC,QAAQ,EAAE,WAAW,CAAC,CAAC;AAErD,kBAAe,MAAM,CAAC"}
