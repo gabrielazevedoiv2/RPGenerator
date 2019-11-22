@@ -3,7 +3,7 @@ import * as mongoose from "mongoose";
 export default function start() {
     mongoose.set('useFindAndModify', false);
     mongoose.set('useCreateIndex', true);
-    mongoose.connect("mongodb://155.138.242.116:27017/rpggenerator", { auth:{
+    mongoose.connect("mongodb://ip:port/rpggenerator", { auth:{
         authdb: "admin",
         user: "admin",
         password: "password"
