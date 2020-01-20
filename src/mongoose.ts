@@ -1,12 +1,15 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import * as mongoose from "mongoose";
 
 export default function start() {
     mongoose.set('useFindAndModify', false);
     mongoose.set('useCreateIndex', true);
-    mongoose.connect("mongodb://ip:port/rpggenerator", { auth:{
-        authdb: "admin",
-        user: "admin",
-        password: "password"
+    mongoose.connect(process.env.DBURL, { auth:{
+        authdb: process.env.AUTHDB,
+        user: process.env.USER,
+        password: process.env.PASS
     }}).then(function(db){
         
     }, { useNewUrlParser: true });
