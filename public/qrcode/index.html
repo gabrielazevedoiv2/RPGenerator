@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #DADADA; height: 100%">
+
+    <div class="ui middle aligned center aligned grid" style="height: 100%">
+        <div class="column" style="width: 500px;">
+          <h2 class="ui violet image header">
+            <div class="content">
+              Free QRCode Generator
+            </div>
+          </h2>
+          <form class="ui large form">
+            <div class="ui stacked segment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="barcode icon"></i>
+                  <input type="text" name="qrdata" id="qrdata" placeholder="QR Code Data">
+                </div>
+              </div>
+              <div class="ui fluid large violet submit button" onclick="getQrData()">Generate</div>
+            </div>
+      
+            <a id="qrcode_anchor" download="qrcode.png" href="" style="width: 120px; height: 120px; margin: 8px;">
+                <img id="qrcode" src="">
+            </a>
+            
+            <div class="content" style="margin: 8px;">
+                Click The QR Code to download!
+            </div>
+      
+          </form>
+        </div>
+      </div>
+    
+    <!-- <label>QRCode Data</label>
+    <input name="qrdata" id="qrdata">
+
+    <button onclick="getQrData()">Get QR Code!</button>
+
+    <a id="qrcode_anchor" download="qrcode.png" href="" style="width: 120px; height: 120px; border: 1px solid black; margin: 4px;">
+        <img id="qrcode" src="">
+    </a>
+
+    <button onclick="downloadQRCode()">Download!</button> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <script>
+        function getQrData() {
+            var qrdata = document.getElementById('qrdata').value;
+            fetch("http://localhost:3060/qrcodeapi/qrcode", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "data": qrdata
+                })
+            }).then(resp => resp.text()).then(text => {
+                document.getElementById('qrcode').src = text
+                document.getElementById('qrcode_anchor').href = text
+                console.log(text);                
+            })
+        }
+
+        function downloadQRCode() {
+            var img = document.getElementById("qrcode");
+            if (img.src != '') {
+                var url = img.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+                window.open(url);
+            }
+        }
+    </script>
+</body>
+</html>
