@@ -1,13 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const dotenv = require("dotenv");
+dotenv.config();
 const mongoose = require("mongoose");
 function start() {
     mongoose.set('useFindAndModify', false);
     mongoose.set('useCreateIndex', true);
-    mongoose.connect("mongodb://155.138.242.116:27017/rpggenerator", { auth: {
-            authdb: "admin",
-            user: "admin",
-            password: "password"
+    mongoose.connect(process.env.DBURL, { auth: {
+            authdb: process.env.AUTHDB,
+            user: process.env.DBUSER,
+            password: process.env.PASS
         } }).then(function (db) {
     }, { useNewUrlParser: true });
     const db = mongoose.connection;

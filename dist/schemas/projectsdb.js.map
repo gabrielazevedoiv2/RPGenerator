@@ -1,0 +1,1 @@
+{"version":3,"file":"projectsdb.js","sourceRoot":"","sources":["../../src/schemas/projectsdb.ts"],"names":[],"mappings":";;AAAA,qCAAqC;AAErC,IAAI,aAAa,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IACpC,WAAW,EAAE,MAAM;IACnB,WAAW,EAAE,MAAM;IACnB,YAAY,EAAE,MAAM;CACvB,CAAC,CAAC;AAEH,MAAM,QAAQ,GAAG,QAAQ,CAAC,KAAK,CAAC,UAAU,EAAE,aAAa,CAAC,CAAC;AAE3D,kBAAe,QAAQ,CAAC"}

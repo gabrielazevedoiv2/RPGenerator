@@ -1,0 +1,1 @@
+{"version":3,"file":"toolsdb.js","sourceRoot":"","sources":["../../src/schemas/toolsdb.ts"],"names":[],"mappings":";;AAAA,qCAAqC;AAErC,IAAI,WAAW,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IAClC,QAAQ,EAAE,MAAM;IAChB,QAAQ,EAAE,MAAM;IAChB,SAAS,EAAE,MAAM;CACpB,CAAC,CAAC;AAEH,MAAM,KAAK,GAAG,QAAQ,CAAC,KAAK,CAAC,OAAO,EAAE,WAAW,CAAC,CAAC;AAEnD,kBAAe,KAAK,CAAC"}

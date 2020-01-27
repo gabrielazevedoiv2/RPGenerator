@@ -22,7 +22,9 @@ router.post("/save", function (req, res, next) {
     var user = {
         username: req.body.username,
         password: lock_1.default.Hash(req.body.password),
-        email: req.body.email
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
     };
     var newUser = userdb_1.default.create(user);
     res.send(newUser);

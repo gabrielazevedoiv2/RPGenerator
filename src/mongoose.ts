@@ -8,7 +8,7 @@ export default function start() {
     mongoose.set('useCreateIndex', true);
     mongoose.connect(process.env.DBURL, { auth:{
         authdb: process.env.AUTHDB,
-        user: process.env.USER,
+        user: process.env.DBUSER,
         password: process.env.PASS
     }}).then(function(db){
         
